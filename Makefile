@@ -1,22 +1,22 @@
-.PHONY: examples
+.PHONY: ViteX
 
 CC = xelatex
-EXAMPLES_DIR = examples
-RESUME_DIR = examples/resume
-CV_DIR = examples/cv
+VITEX_DIR = ViteX
+RESUME_DIR = ViteX/resume
+CV_DIR = ViteX/cv
 RESUME_SRCS = $(shell find $(RESUME_DIR) -name '*.tex')
 CV_SRCS = $(shell find $(CV_DIR) -name '*.tex')
 
-examples: $(foreach x, coverletter cv resume, $x.pdf)
+ViteX: $(foreach x, coverletter cv resume, $x.pdf)
 
-resume.pdf: $(EXAMPLES_DIR)/resume.tex $(RESUME_SRCS)
-	$(CC) -output-directory=$(EXAMPLES_DIR) $<
+resume.pdf: $(VITEX_DIR)/resume.tex $(RESUME_SRCS)
+	$(CC) -output-directory=$(VITEX_DIR) $<
 
-cv.pdf: $(EXAMPLES_DIR)/cv.tex $(CV_SRCS)
-	$(CC) -output-directory=$(EXAMPLES_DIR) $<
+cv.pdf: $(VITEX_DIR)/cv.tex $(CV_SRCS)
+	$(CC) -output-directory=$(VITEX_DIR) $<
 
-coverletter.pdf: $(EXAMPLES_DIR)/coverletter.tex
-	$(CC) -output-directory=$(EXAMPLES_DIR) $<
+coverletter.pdf: $(VITEX_DIR)/coverletter.tex
+	$(CC) -output-directory=$(VITEX_DIR) $<
 
 clean:
-	rm -rf $(EXAMPLES_DIR)/*.pdf
+	rm -rf $(VITEX_DIR)/*.pdf

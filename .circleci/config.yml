@@ -14,8 +14,8 @@ jobs:
           name: Move artifacts
           command: |
             mkdir -p ~/results
-            mv examples/cv.pdf ~/results
-            mv examples/resume.pdf ~/results
-            mv examples/coverletter.pdf ~/results
+            mv ViteX/cv.pdf ~/results
+            mv ViteX/resume.pdf ~/results
+            mv ViteX/coverletter.pdf ~/results
       - store_artifacts:
           path: ~/results
